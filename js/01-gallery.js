@@ -35,7 +35,7 @@ function creatsImgGellery(array){
 
         evt.preventDefault();
 
-        if(evt.target.nodeName !== 'IMG') return;
+        
     
     const originalImg = evt.target.dataset.source;
     const instance = basicLightbox.create(`<img src="${originalImg}">`)
