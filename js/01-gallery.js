@@ -4,14 +4,15 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 
-onst gallery  = document.querySelector('.gallery');
-
+const gallery  = document.querySelector('.gallery');
 const galleryMarkup = creatsImgGellery(galleryItems);
 
 gallery.insertAdjacentHTML('beforeend', galleryMarkup);
+gallery.addEventListener('click', onImageClick);
 
-function creatsImgGellery(galleryItems){
-    return galleryItems.map(({preview, original, description}) => {
+
+function creatsImgGellery(array){
+    return array.map(({preview, original, description}) => {
         return  `
         <div class="gallery__item"> <a class="gallery__link" href="${original}">
             <img
@@ -25,3 +26,23 @@ function creatsImgGellery(galleryItems){
     `;
 }).join( ' ');
     }
+
+
+
+
+
+    function onImageClick(evt){
+
+        evt.preventDefault();
+
+        if(evt.target.nodeName !== 'IMG') return;
+    
+    const originalImg = evt.target.dataset.source;
+    const instance = basicLightbox.create(`<img src="${originalImg}">`)
+    console.log(originalImg);
+
+instance.show()
+
+    }
+
+
