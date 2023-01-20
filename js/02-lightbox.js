@@ -6,9 +6,9 @@ console.log(galleryItems);
 
 const gallery  = document.querySelector('.gallery');
 
-const galleryMarkup = creatsImgGellery(galleryItems);
+const createGalleryMarkup = creatsImgGellery(galleryItems);
 
-gallery.insertAdjacentHTML('beforeend', galleryMarkup);
+gallery.insertAdjacentHTML('beforeend', createGalleryMarkup);
 
 function creatsImgGellery(galleryItems){
     return galleryItems.map(({preview, original, description}) => {
